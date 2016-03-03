@@ -48,8 +48,26 @@
 			<!-- // END Breadcrumb -->
 			<h1>{{ $title }}</h1>
 			<!--<p class="lead">Lorem ipsum d</p>-->
+
+			@if (count($errors) > 0)
+    <!-- Form Error List -->
+    <div class="alert alert-danger">
+        <strong>Whoops! Something went wrong!</strong>
+
+        <br><br>
+
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
 			<div class="card">
 				<div class="card-block">
+
 					@yield('content')
 				</div>
 			</div>

@@ -78,13 +78,13 @@ class UserController extends Controller
             'first_name'    => 'required|max:255',
             'last_name'     => 'required|max:255',
             'email'         => 'required|email|max:255|unique:users',
-            'password'      => 'required|confirmed|min:6',
+            'password'      => 'required|min:6',
         ]);
 
         if( $v->fails() )
         {
             //return response( [ $v->errors()->toArray() ], 422 );
-            return redirect('/users/create')
+            return redirect('/users/create?errors')
                     ->withErrors( $v )
                     ->withInput();              
         }
@@ -131,7 +131,7 @@ class UserController extends Controller
             'first_name'    => 'required|max:255',
             'last_name'     => 'required|max:255',
             'email'         => 'required|email|max:255',
-            'password'      => 'min:6',
+            //'password'      => 'min:6',
         ]);
 
         if( $v->fails() )
