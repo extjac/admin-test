@@ -202,9 +202,9 @@ class UserController extends Controller
         ->first();
 
         if( ! $user ) {
-            abort(404);
+            abort(404, 'Resource Not found');
         }
-        
+
         return view( $this->path.'.edit' )
         ->with('title', $this->title )
         ->with('user', $user ) ;        
