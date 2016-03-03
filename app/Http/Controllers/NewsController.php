@@ -169,7 +169,7 @@ class NewsController extends Controller
         if( ! file_exists( $path ) ) {
 
             //$result = \File::makeDirectory( $path , 0775, true, true);
-            $result = \Storage::disk('local')->makeDirectory( $path );
+            $result = \Storage::disk('public')->makeDirectory( $path );
         }
 
         $filename =  $this->uploadImage( $path, $request->file ) ;
