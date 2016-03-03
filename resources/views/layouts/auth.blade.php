@@ -28,7 +28,6 @@
 
 
 
-
 	<!-- Content -->
 	<div class="content-wrapper">
 		<div class="container" style="width: 300px">

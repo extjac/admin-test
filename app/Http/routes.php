@@ -76,6 +76,16 @@ Route::group(['middleware' => 'web'], function ( $app ) {
         $app->put('users/{id}/password' , 'UserController@updatePassword');
         $app->delete('users/{id}'       ,'UserController@destroy');
 
+        //Customer
+        $app->get('customers'               , 'CustomerController@index');
+        $app->get('customers/create'        , 'CustomerController@create');
+        $app->get('customers/{token}/edit'  , 'CustomerController@edit');
+        $app->post('customers'              , 'CustomerController@store');
+        $app->put('customers/{id}'          , 'CustomerController@update');
+        $app->put('customers/{id}/password' , 'CustomerController@updatePassword');
+        $app->delete('customers/{id}'       , 'CustomerController@destroy');
+
+
         //CMS POST
         $app->get('posts'               , 'PostController@index');
         $app->get('posts/create'        , 'PostController@create');
@@ -133,7 +143,7 @@ Route::group(['middleware' => 'web'], function ( $app ) {
         $app->delete('teams/categories/{id}'        , 'TeamCategoryController@destroy');
         
 
-        //teams
+        //items
         $app->get('items'               , 'ItemController@index');
         $app->get('items/create'        , 'ItemController@create');
         $app->get('items/{token}/edit'  ,'ItemController@edit');
@@ -141,16 +151,14 @@ Route::group(['middleware' => 'web'], function ( $app ) {
         $app->put('items/{id}'          , 'ItemController@update');
         $app->delete('items/{id}'       ,'ItemController@destroy');
 
+        //items categories
+        $app->get('items/categories'               , 'ItemCategoryController@index');
+        $app->get('items/categories/create'        , 'ItemCategoryController@create');
+        $app->get('items/categories/{token}/edit'  , 'ItemCategoryController@edit');
+        $app->post('items/categories'              , 'ItemCategoryController@store');
+        $app->put('items/categories/{id}'          , 'ItemCategoryController@update');
+        $app->delete('items/categories/{id}'       , 'ItemCategoryController@destroy');
 
-/*
-        //groups & teams
-        $app->get('teams', 'TeamController@index');
-        //$router->get('teams/{id}', 'TeamController@show');
-        $app->get('teams', 'TeamController@index');
-        $app->post('teams', 'TeamController@store');
-        $app->get('teams/groups' , 'TeamGroupController@index');
-        $app->post('teams/groups' , 'TeamGroupController@store');
-*/
 
     });
 

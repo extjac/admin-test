@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
 
-    protected $title = 'Users';
+    protected $title = 'Customers';
 
-    protected $path = 'user';
+    protected $path = 'customer';
 
-    protected $reDirect = 'users/';
+    protected $reDirect = 'customers/';
 
 
     /**
@@ -56,7 +56,7 @@ class UserController extends Controller
     {
        $users =  User::select()
         ->where('org_id', $this->org_id )
-        ->where('is_staff', 1)
+        ->where('is_staff', 0)
         ->get();
 
         return view( $this->path.'.index' )
@@ -85,7 +85,7 @@ class UserController extends Controller
         if( $v->fails() )
         {
             //return response( [ $v->errors()->toArray() ], 422 );
-            return redirect('/users/create?errors')
+            return redirect('/customers/create?errors')
                     ->withErrors( $v )
                     ->withInput();              
         }
@@ -105,11 +105,11 @@ class UserController extends Controller
         $user->postal_code = $request->postal_code;
         $user->state = $request->state;
         $user->country = $request->country;
-        $user->is_staff = 1;
+        //$user->is_staff = 1;
         $user->is_active = $request->is_active;
         $user->save();
 
-        return redirect( '/users/' . $user->token.'/edit' );
+        return redirect( '/customers/' . $user->token.'/edit' );
     }
 
 
@@ -137,7 +137,7 @@ class UserController extends Controller
         if( $v->fails() )
         {
             //return response( [ $v->errors()->toArray() ], 422 );
-            return redirect('/users/'.$user->token)
+            return redirect('/customers/'.$user->token .'/edit?error')
                     ->withErrors( $v )
                     ->withInput();              
         }
@@ -157,7 +157,7 @@ class UserController extends Controller
         $user->notes = $request->notes;
         $user->save();
 
-        return redirect( '/users/' . $user->token .'/edit');
+        return redirect( '/customers/' . $user->token .'/edit');
     }
 
     /**
@@ -188,7 +188,7 @@ class UserController extends Controller
         $user->password = $request->password ? bcrypt($request->password) : $user->password ;
         $user->save();
 
-        return redirect( '/users/' . $user->token .'/edit');
+        return redirect( '/customers/' . $user->token .'/edit');
     }
 
 
@@ -243,73 +243,6 @@ class UserController extends Controller
 
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function editMe( )
-    {
-        $user = User::where('token', \Auth::user()->token )
-        ->where('org_id', $this->org_id )
-        ->first();
-
-        return view( $this->path.'.edit' )
-        ->with('title', $this->title )
-        ->with('user', $user ) ;        
-    }
-
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateMe(Request $request  )
-    {
-        $user =  User::where( 'token', \Auth::user()->token  )
-        ->where('org_id',  $this->org_id )
-        ->first();
-
-        $v = \Validator::make( $request->all(), [
-            'first_name'    => 'required|max:255',
-            'last_name'     => 'required|max:255',
-            'email'         => 'required|email|max:255',
-        ]);
-
-        if( $v->fails() )
-        {
-            //return response( [ $v->errors()->toArray() ], 422 );
-            return redirect('/users/'.$user->token)
-                    ->withErrors( $v )
-                    ->withInput();              
-        }
-
-        $user->org_id = $this->org_id; 
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->email = $request->email;
-        $user->password = $request->password ? bcrypt($request->password) : $user->password ;
-        $user->birthday = $request->birthday;
-        $user->gender = $request->gender;
-        $user->address = $request->address;
-        $user->address1 = $request->address1;
-        $user->city = $request->city;
-        $user->postal_code = $request->postal_code;
-        $user->state = $request->state;
-        $user->country = $request->country;
-        $user->is_active = $request->is_active;
-        $user->notes = $request->notes;
-        $user->save();
-
-        return redirect( '/users/' . $user->token );
-    }
-
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -321,5 +254,7 @@ class UserController extends Controller
         ->where('org_id', $this->org_id )
         ->delete();
     }
+
+
 
 }

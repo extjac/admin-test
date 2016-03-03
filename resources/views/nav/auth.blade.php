@@ -21,6 +21,7 @@
 		<li class="nav-item active"><a class="nav-link" href="sidebar.html">Sidebar</a></li>
 	</ul>
 </div>
+
 <!-- // END Collapse -->
   <div class="btn-group">
     <button type="button" class="btn btn-primary-outline dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">settings</i> Actions</button>
@@ -37,7 +38,6 @@
 		<a class="dropdown-item" href="{{ url('/locations/create') }}">Create Locations</a>      	
     </div>
   </div>
-
 <!-- Top Menu -->
 <ul class="nav navbar-nav pull-xs-right hidden-md-down ">
   <!-- User dropdown -->
@@ -63,48 +63,73 @@
 <!-- Menu -->
 <ul class="nav">
 	<li class="nav-item">
-		<a class="nav-link" href="{{ url('/home') }}"><i class="material-icons">home</i><span class="icon-text">Home</span></a>
+		<a class="nav-link" href="{{ url('/home') }}">
+			<i class="material-icons">home</i><span class="icon-text">Home</span>
+		</a>
 	</li>
-	<li class="nav-item ">
-		<a class="nav-link" href="#"><i class="material-icons">group</i><span class="icon-text">Teams</span></a>
-	     	<ul>
-	          <li><a href="{{ url('/teams/categories') }}"> <i class="material-icons">keyboard_arrow_right</i> Categroies/Level </a> </li>
-	          <li><a href="{{ url('/teams') }}"><i class="material-icons">keyboard_arrow_right</i> Teams </a></li>
-	        </ul>				
-	</li>
-	<li class="nav-item ">
-		<a class="nav-link" href="#"><i class="material-icons">person</i><span class="icon-text">Players</span></a>
-	     	<ul>
-
-	          <li><a href="{{ url('/players') }}"><i class="material-icons">keyboard_arrow_right</i> Players </a></li>
-	        </ul>				
-	</li>
-	<li class="nav-item ">
-		<a class="nav-link" href="#"><i class="material-icons">lock</i><span class="icon-text">Accounts</span></a>
-	     	<ul>
-	          <li><a href="{{ url('/users') }}"><i class="material-icons">keyboard_arrow_right</i> Staff</a> </li>
-	        </ul>				
-	</li>
-	<li class="nav-item ">
-		<a class="nav-link" href="#"><i class="material-icons">store</i><span class="icon-text">Store</span></a>
-	     	<ul>
-	          <li><a href="{{ url('/items') }}"><i class="material-icons">keyboard_arrow_right</i> Registration / Events</a> </li>
-	          <li><a href="{{ url('/orders') }}"><i class="material-icons">keyboard_arrow_right</i> Orders </a></li>
-	          <li><a href="{{ url('/payments') }}"><i class="material-icons">keyboard_arrow_right</i> Payments </a></li>
-	        </ul>				
+	<li class="nav-item  <?php if( \Request::segment(1)=='posts' OR \Request::segment(1)=='news' ) echo 'open' ?> ">
+		<a class="nav-link" href="#">
+			<i class="material-icons">view_module</i><span class="icon-text">CMS</span>
+		</a>
+     	<ul>
+          <li><a href="{{ url('/posts') }}"><i class="material-icons">keyboard_arrow_right</i> Pages / Menues</a> </li>
+          <li><a href="{{ url('/news') }}"><i class="material-icons">keyboard_arrow_right</i> News </a></li>
+        </ul>				
+	</li>	
+	<li class="nav-item <?php if( \Request::segment(1)=='items' OR \Request::segment(1)=='items' ) echo 'open' ?>  ">
+		<a class="nav-link" href="#">
+			<i class="material-icons">store</i><span class="icon-text">Store</span>
+		</a>
+     	<ul>     
+          <li><a href="{{ url('/items/categories') }}"><i class="material-icons">keyboard_arrow_right</i> Categories </a> </li>
+          <li><a href="{{ url('/items') }}"><i class="material-icons">keyboard_arrow_right</i> Registration / Events</a> </li>
+        </ul>				
 	</li>		
-	<li class="nav-item ">
-		<a class="nav-link" href="#"><i class="material-icons">view_module</i><span class="icon-text">CMS</span></a>
-	     	<ul>
-	          <li><a href="{{ url('/posts') }}"><i class="material-icons">keyboard_arrow_right</i> Pages / Menues</a> </li>
-	          <li><a href="{{ url('/news') }}"><i class="material-icons">keyboard_arrow_right</i> News </a></li>
-	        </ul>				
+	<li class="nav-item <?php if( \Request::segment(1)=='teams'  ) echo 'open' ?> ">
+		<a class="nav-link" href="#">	
+			<i class="material-icons">group</i><span class="icon-text">Teams</span>
+		</a>
+     	<ul>
+          <li><a href="{{ url('/teams/categories') }}"> <i class="material-icons">keyboard_arrow_right</i> Categroies </a> </li>
+          <li><a href="{{ url('/teams') }}"><i class="material-icons">keyboard_arrow_right</i> Teams </a></li>
+        </ul>				
 	</li>
-	<li class="nav-item ">
-		<a class="nav-link" href="#"><i class="material-icons">map</i><span class="icon-text">Locations</span></a>
-	     	<ul>
-	          <li><a href="{{ url('/locations') }}"><i class="material-icons">keyboard_arrow_right</i> Locations </a></li>
-	        </ul>				
+	<li class="nav-item <?php if( \Request::segment(1)=='players'  ) echo 'open' ?> ">
+		<a class="nav-link" href="#">
+			<i class="material-icons">person</i><span class="icon-text">Players</span>
+		</a>
+     	<ul>
+          <li><a href="{{ url('/players') }}"><i class="material-icons">keyboard_arrow_right</i> Players </a></li>
+        </ul>				
+	</li>
+	<li class="nav-item <?php if( \Request::segment(1)=='customers' OR \Request::segment(1)=='users' ) echo 'open' ?> ">
+		<a class="nav-link" href="#">
+			<i class="material-icons">lock</i><span class="icon-text">Accounts</span>
+		</a>
+     	<ul>
+          <li><a href="{{ url('/customers') }}"><i class="material-icons">keyboard_arrow_right</i> Customers</a> </li>
+          <li><a href="{{ url('/users') }}"><i class="material-icons">keyboard_arrow_right</i> Staff</a> </li>
+        </ul>				
+	</li>
+	
+
+	<li class="nav-item <?php if( \Request::segment(1)=='games' ) echo 'open' ?> ">
+		<a class="nav-link" href="#">
+			<i class="material-icons">bookmark_border</i><span class="icon-text">Schedule</span>
+		</a>
+     	<ul>
+          <li><a href="#"><i class="material-icons">keyboard_arrow_right</i> Game </a></li>
+          <li><a href="#"><i class="material-icons">keyboard_arrow_right</i> Game </a></li>
+          <li><a href="#"><i class="material-icons">keyboard_arrow_right</i> Torurnament </a></li>
+        </ul>				
+	</li>		
+	<li class="nav-item <?php if( \Request::segment(1)=='locations' ) echo 'open' ?>">
+		<a class="nav-link" href="#">
+			<i class="material-icons">map</i><span class="icon-text">Locations</span>
+		</a>
+     	<ul>
+          <li><a href="{{ url('/locations') }}"><i class="material-icons">keyboard_arrow_right</i> Locations </a></li>
+        </ul>				
 	</li>	
 </ul>
 <!-- // END Menu -->

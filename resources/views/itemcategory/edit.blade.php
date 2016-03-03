@@ -3,22 +3,8 @@
 
 @include('common.breadcrumb')
 
+@include('itemcategory.form.edit') 
 
- 
-
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#Details" data-toggle="tab">Details</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#Orders" data-toggle="tab">Orders</a>
-  </li>
-</ul>
-<div class="tab-content">
-  <div class="tab-pane active" id="Details" style="padding-top: 10px"> @include('item.form.edit') </div>
-  <div class="tab-pane" id="Orders"  style="padding-top: 10px"> soon </div>
-
-</div>
 
 
 @endsection

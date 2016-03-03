@@ -177,15 +177,16 @@ class AuthController extends Controller
 
         if( $v->fails() )
         {
-             return redirect('login')
+            return redirect('/login?errors')
                     ->withErrors( $v )
-                    ->withInput();
+                    ->withInput();              
         }
 
         $credentials = [
             'email'     => $request->input('email'), 
             'password'  => $request->input('password'), 
-            'is_active' => 1
+            'is_active' => 1,
+            'is_staff'  => 1,
         ];
 
         if ( Auth::attempt( $credentials ) ) 
@@ -195,9 +196,9 @@ class AuthController extends Controller
         else
         {
             //return Redirect::back()->withErrors(['msg', 'The Message']);
-            return back()
-            ->withErrors( ['Credentials not valid' ] )
-            ->with('errors', true);
+            return redirect('/login?failed')
+                    ->withErrors(['401 - Unauthorized access is denied due to invalid credential'] )
+                    ->with('message', '401 - Unauthorized access is denied due to invalid credential' );            
 
         }     
 
@@ -235,8 +236,7 @@ class AuthController extends Controller
         if( $v->fails() )
         {
             //return response( [ $v->errors()->toArray() ], 422 );
- 
-            return redirect('password/reset')
+             return redirect('password/reset')
                     ->withErrors( $v )
                     ->withInput();              
         }

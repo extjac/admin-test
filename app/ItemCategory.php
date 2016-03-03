@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class ItemCategory extends Model
 {
 
-	protected $table = 'items';
+	protected $table = 'items_categories';
 
 	public $primaryKey = 'id';
 
@@ -38,9 +38,6 @@ class Item extends Model
     ];    
 
 
-    public function category()
-    {
-        return $this->hasOne('App\ItemCategory', 'id', 'category_id' );
-    }
+
 
 }

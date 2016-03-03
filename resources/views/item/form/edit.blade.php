@@ -31,8 +31,8 @@
                 <label class="control-label" for="is_featured">Currency</label>
                 <select name='currency' id="currency"  class="form-control c-select"  required>
                   <option value='' >-select-</option>
-                  <option value='USD' <?php if( $item->currency=='USD') echo 'selected' ?>  >USD</option>
-                  <option value="CAD" <?php if( $item->currency=='CAD') echo 'selected' ?>>CAD</option>
+                  <option value='USD' <?php if( $item->currency=='USD') echo 'selected' ?> >USD</option>
+                  <option value="CAD" <?php if( $item->currency=='CAD') echo 'selected' ?> >CAD</option>
                 </select>   
             </div>
         </div>          
@@ -45,6 +45,32 @@
       </div>
 
       <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group"> 
+                <label class="control-label" for="category_id">Category</label>
+                <?php $categories = App\ItemCategory::where('org_id', Auth::user()->org_id)->where('is_active', 1)->get() ?>
+                <select name='category_id' id="category_id" class="form-control c-select"  required>
+                  <option value=''  >-select- </option>
+                  @foreach( $categories as $category )
+                  <option value="{{ $category->id }}"  <?php if( $item->category_id==$category->id) echo 'selected' ?>  > {{ $category->name }}</option>
+                  @endforeach
+                </select>
+            </div>
+        </div>  
+
+        <div class="col-md-3">
+            <div class="form-group"> 
+                <label class="control-label" for="start_date_time">Start Date</label>
+                <input  type="date" name="start_date_time" id="start_date_time" class="form-control"  value="{{ $item->start_date_time }}" >
+            </div>
+        </div>  
+        <div class="col-md-3">
+            <div class="form-group"> 
+                <label class="control-label" for="start_date_time">End Date</label>
+                <input  type="date" name="end_date_time" id="end_date_time" class="form-control" value="{{ $item->end_date_time }}" >
+            </div>
+        </div>         
         <div class="col-md-3">
             <div class="form-group"> 
                 <label class="control-label" for="status">Status *</label>

@@ -53,15 +53,15 @@ return [
             'root' => storage_path('app/public'),
             'visibility' => 'public',
         ],
-
         's3' => [
-            'driver' => 's3',
-            'key' => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
+            'driver'  => 's3',
+            'key'     => 'AKIAI2I6KE64ZXT4JYQA',
+            'secret'  => 'B7YyygEVmhDYxHS85mGfNIibeVy7/S24nrrK6dYg',
+            'region'  => 'us-east-1',
+            'bucket'  => 'legacyuploads',
         ],
 
     ],
 
 ];
+ 

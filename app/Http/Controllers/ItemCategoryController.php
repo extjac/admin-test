@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Item;
+use App\ItemCategory;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ItemController extends Controller
+class ItemCategoryController extends Controller
 {
 
-    protected $title = 'Items';
+    protected $title = 'Categories';
 
-    protected $path = 'item';
+    protected $path = 'itemcategory';
 
-    protected $reDirect = 'items';
+    protected $reDirect = 'itemcategory';
 
 
     /**
@@ -36,15 +36,13 @@ class ItemController extends Controller
      */
     public function index()
     {
-       $items =  Item::select()
-        ->with('category')
+       $categories =  ItemCategory::select()
         ->where('org_id', $this->org )
         ->orderBy('name')
         ->get();
-
         return view( $this->path.'.index' )
         ->with('title', $this->title )
-        ->with('items', $items );
+        ->with('categories', $categories );
     }
 
 
@@ -57,27 +55,18 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new Item;
-        $item->token = $this->token();
-        $item->org_id = \Auth::user()->org_id; 
-        $item->site_id = $request->site_id; 
-        $item->type_id = 1; ///Online Registartion
-        $item->category_id = $request->category_id;
-        $item->name = $request->name;
-        $item->slug = $this->slug( $request->name );
-        $item->excerpt = $request->excerpt;
-        $item->description = $request->description;
-        $item->is_active = $request->is_active;
-        $item->price = $request->price;
-        $item->currency = $request->currency;
-        $item->is_featured = $request->is_featured;        
+        $cat = new ItemCategory;
+        $cat->token = $this->token();
+        $cat->org_id = \Auth::user()->org_id; 
+        $cat->site_id = $request->site_id; 
+        $cat->parent_id = 0; ///Online Registartion
+        $cat->name = $request->name;
+        $cat->slug = $this->slug( $request->name );
+        $cat->description = $request->description;
+        $cat->is_active = $request->is_active;
+        $cat->save();
 
-        $item->start_date_time = $request->start_date_time; 
-        $item->end_date_time = $request->end_date_time; 
-
-        $item->save();
-
-        return redirect('/items/'.$item->token.'/edit' );
+        return redirect('/items/categories/'.$cat->token.'/edit' );
     }
 
     /**
@@ -89,22 +78,19 @@ class ItemController extends Controller
      */
     public function update(Request $request, $token)
     {
-        $item = Item::where('token', $token )->first();
+        $cat = ItemCategory::where('token', $token )->first();
         
-        $item->category_id = $request->category_id;
-        $item->name = $request->name;
-        $item->slug = $this->slug( $request->name );
-        $item->excerpt = $request->excerpt;
-        $item->description = $request->description;
-        $item->is_active = $request->is_active;
-        $item->price = $request->price;
-        $item->currency = $request->currency;
-        $item->is_featured = $request->is_featured; 
-        $item->start_date_time = $request->start_date_time; 
-        $item->end_date_time = $request->end_date_time;         
-        $item->save(); 
+        $cat->token = $this->token();
+        $cat->org_id = \Auth::user()->org_id; 
+        $cat->site_id = $request->site_id; 
+        $cat->parent_id = 0; ///Online Registartion
+        $cat->name = $request->name;
+        $cat->slug = $this->slug( $request->name );
+        $cat->description = $request->description;
+        $cat->is_active = $request->is_active;
+        $cat->save();
 
-        return redirect('items/'.$item->token.'/edit' );
+        return redirect('/items/categories/'.$cat->token.'/edit' );
     }
 
     /**
@@ -138,11 +124,11 @@ class ItemController extends Controller
      */
     public function edit( $token )
     {
-        $item = Item::where('token', $token )->first();
+        $category = ItemCategory::where('token', $token )->first();
 
         return view( $this->path.'.edit' )
         ->with('title', $this->title )
-        ->with('item', $item );
+        ->with('category', $category );
     }
 
 

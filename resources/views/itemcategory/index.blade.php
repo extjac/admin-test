@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-	   	<a href="{{ url('/items/create') }}" class="btn btn-success " >
+	   	<a href="{{ url('/items/categories/create') }}" class="btn btn-success " >
 	      <i class="material-icons">add</i> add new
 	    </a>
 	</div>
@@ -21,19 +21,15 @@
 	        	<tr class="">
 		            <th></th>
 		            <th>Name</th>
-		            <th>Category</th>
-		            <th>Price</th>
 		            <th>Status</th>
 	        	</tr>
 	    	</thead>
 	    	<tbody>
-	    	@foreach( $items as $item )
+	    	@foreach( $categories as $category )
 	        	<tr class="">
-		            <td><a href="{{ url('/items/'.$item->token.'/edit') }}" class="btn btn-info btn-circle btn-xs"><i class="material-icons">edit</i></a> </td>
-		            <td>{{ $item->name }} </td>
-		            <td>{{ $item->category->name }}</td>
-		            <td>{{ $item->currency}} {{ $item->price}} </td>
-		            <td>{{ $item->is_active ? 'Active' : 'Inactive ' }}</td>
+		            <td><a href="{{ url('/items/categories/'.$category->token.'/edit') }}" class="btn btn-info btn-circle btn-xs"><i class="material-icons">edit</i></a> </td>
+		            <td>{{ $category->name }} </td>
+		            <td>{{ $category->is_active ? 'Active' : 'Inactive ' }}</td>
 	        	</tr>
 	        @endforeach
 	    	</tbody>	    	
