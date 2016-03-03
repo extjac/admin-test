@@ -175,6 +175,8 @@ class UserController extends Controller
         ->with('title', $this->title );
     }
 
+
+
     /**
      * Display the specified resource.
      *
@@ -199,6 +201,10 @@ class UserController extends Controller
         ->where('org_id', $this->org_id )
         ->first();
 
+        if( ! $user ) {
+            abort(404);
+        }
+        
         return view( $this->path.'.edit' )
         ->with('title', $this->title )
         ->with('user', $user ) ;        
