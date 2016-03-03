@@ -74,7 +74,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect('/posts/'.$post->token);
+        return redirect('/posts/'.$post->token . '/edit');
     }
 
     /**
@@ -99,7 +99,7 @@ class PostController extends Controller
      
         $post->save();
 
-        return redirect('/posts/'.$post->token);
+        return redirect('/posts/'.$post->token . '/edit');
     }
 
     /**

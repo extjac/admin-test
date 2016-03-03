@@ -88,7 +88,7 @@ class TeamCategoryController  extends Controller
         $category->is_active = $request->is_active;
         $category->save();
 
-        return redirect( '/categories/' . $category->token );
+        return redirect( '/teams/categories/' . $category->token .'/edit' );
     }
 
 
@@ -123,7 +123,7 @@ class TeamCategoryController  extends Controller
         $category->is_active = $request->is_active;
         $category->save();
 
-        return redirect( '/categories/' . $category->token );
+        return redirect( '/teams/categories/' . $category->token .'/edit');
     }
 
 

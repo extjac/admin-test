@@ -5,7 +5,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-	   	<a href="/posts/create" class="btn btn-success " >
+	   	<a href="{{ url('/posts/create') }}" class="btn btn-success " >
 	      <i class="material-icons">add</i> add  new
 	    </a>
 	</div>

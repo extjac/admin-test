@@ -71,7 +71,7 @@ class LocationController extends Controller
         $location->country = $request->country;
         $location->save();
 
-        return redirect( '/locations/' . $location->token );
+        return redirect( '/locations/' . $location->token .'/edit');
     }
 
     /**
@@ -101,7 +101,7 @@ class LocationController extends Controller
 
        // return $request; 
 
-        return redirect( '/locations/' . $location->token );
+        return redirect( '/locations/' . $location->token .'/edit');
     }
 
     /**

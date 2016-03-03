@@ -51,14 +51,15 @@ class TeamController extends Controller
      */
     public function index()
     {
-       $teams =  Team::select()
+        $teams =  Team::select()
+        ->with('category')
+        ->with('sport')
         ->where('org_id', $this->org_id )
         ->get();
-
         return view( $this->path.'.index' )
         ->with('title', $this->title )
         ->with('teams', $teams );
-    }
+        }
 
 
 
@@ -90,11 +91,13 @@ class TeamController extends Controller
         $team->name = $request->name;
         $team->slug = $this->slug( $request->name );
         $team->category_id = $request->category_id;
-        $team->description = $request->description;       
+        $team->description = $request->description;  
+        $team->gender = $request->gender;     
+        $team->sport_id = $request->sport_id; 
         $team->is_active = $request->is_active;
         $team->save();
 
-        return redirect( '/teams/' . $team->token );
+        return redirect( '/teams/' . $team->token.'/edit' );
     }
 
 
@@ -127,12 +130,14 @@ class TeamController extends Controller
         $team->name = $request->name;
         $team->slug = $this->slug( $request->name );
         $team->category_id = $request->category_id;
-        $team->description = $request->description;       
+        $team->description = $request->description;   
+        $team->gender = $request->gender;   
         $team->is_active = $request->is_active;
+        $team->sport_id = $request->sport_id;
         $team->notes = $request->notes;
         $team->save();
 
-        return redirect( '/teams/' . $team->token );
+        return redirect( '/teams/' . $team->token .'/edit');
     }
 
 

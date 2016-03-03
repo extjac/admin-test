@@ -109,7 +109,7 @@ class PersonController extends Controller
         $person->is_active = $request->is_active;
         $person->save();
 
-        return redirect( '/players/' . $person->token );
+        return redirect( '/players/' . $person->token.'/edit' );
     }
 
 
@@ -164,7 +164,7 @@ class PersonController extends Controller
         $person->notes = $request->notes;
         $person->save();
 
-        return redirect( '/players/' . $person->token );
+        return redirect( '/players/' . $person->token .'/edit');
     }
 
 

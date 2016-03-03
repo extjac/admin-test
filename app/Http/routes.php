@@ -66,67 +66,81 @@ Route::group(['middleware' => 'web'], function ( $app ) {
         $app->get('/', 'DashboardController@index');
         $app->get('home', 'DashboardController@index');
         $app->get('dashboard', 'DashboardController@index');
-    
-        //Me
-        $app->get('users/me', 'UserController@editMe');
-        $app->put('users/me', 'UserController@updateMe');
 
         //Staff
-        $app->get('users'       , 'UserController@index');
-        $app->get('users/create', 'UserController@create');
-        $app->get('users/{token}','UserController@edit');
-        $app->post('users'      , 'UserController@store');
-        $app->put('users/{id}'  , 'UserController@update');
-        $app->delete('users/{id}','UserController@destroy');
+        $app->get('users'               , 'UserController@index');
+        $app->get('users/create'        , 'UserController@create');
+        $app->get('users/{token}/edit'  ,'UserController@edit');
+        $app->post('users'              , 'UserController@store');
+        $app->put('users/{id}'          , 'UserController@update');
+        $app->put('users/{id}/password' , 'UserController@updatePassword');
+        $app->delete('users/{id}'       ,'UserController@destroy');
 
         //CMS POST
-        $app->get('posts'           , 'PostController@index');
-        $app->get('posts/create'    , 'PostController@create');
-        $app->get('posts/{token}'   , 'PostController@edit');
-        $app->post('posts'          , 'PostController@store');
-        $app->put('posts/{id}'      , 'PostController@update');
-        $app->delete('posts/{id}'   , 'PostController@destroy');
+        $app->get('posts'               , 'PostController@index');
+        $app->get('posts/create'        , 'PostController@create');
+        $app->get('posts/{token}/edit'  , 'PostController@edit');
+        $app->post('posts'              , 'PostController@store');
+        $app->put('posts/{id}'          , 'PostController@update');
+        $app->delete('posts/{id}'       , 'PostController@destroy');
         //CMS NEWS
-        $app->get('news'           , 'NewsController@index');
-        $app->get('news/create'    , 'NewsController@create');
-        $app->get('news/{token}'   , 'NewsController@edit');
-        $app->post('news'          , 'NewsController@store');
-        $app->put('news/{id}'      , 'NewsController@update');
-        $app->delete('news/{id}'   , 'NewsController@destroy');
+        $app->get('news'                , 'NewsController@index');
+        $app->get('news/create'         , 'NewsController@create');
+        $app->get('news/{token}/edit'   , 'NewsController@edit');
+        $app->post('news'               , 'NewsController@store');
+        $app->put('news/{id}'           , 'NewsController@update');
+        $app->delete('news/{id}'        , 'NewsController@destroy');
         $app->post('news/{token}/upload' , 'NewsController@upload');
 
         //Locations
-        $app->get('locations'       , 'LocationController@index');
-        $app->get('locations/create', 'LocationController@create');
-        $app->get('locations/{token}','LocationController@edit');
-        $app->post('locations'      , 'LocationController@store');
-        $app->put('locations/{id}'  , 'LocationController@update');
-        $app->delete('locations/{id}','LocationController@destroy');
+        $app->get('locations'           , 'LocationController@index');
+        $app->get('locations/create'    , 'LocationController@create');
+        $app->get('locations/{token}/edit','LocationController@edit');
+        $app->post('locations'          , 'LocationController@store');
+        $app->put('locations/{id}'      , 'LocationController@update');
+        $app->delete('locations/{id}'   ,'LocationController@destroy');
 
         //people
-        $app->get('players'       , 'PersonController@indexPlayer');
-        $app->get('players/create', 'PersonController@createPlayer');
-        $app->get('players/{token}','PersonController@editPlayer');
-        $app->post('players'      , 'PersonController@storePlayer');
-        $app->put('players/{id}'  , 'PersonController@updatePlayer');
-        $app->delete('players/{id}','PersonController@destroyPlayer');
+        $app->get('players'             , 'PersonController@indexPlayer');
+        $app->get('players/create'      , 'PersonController@createPlayer');
+        $app->get('players/{token}/edit','PersonController@editPlayer');
+        $app->post('players'            , 'PersonController@storePlayer');
+        $app->put('players/{id}'        , 'PersonController@updatePlayer');
+        $app->delete('players/{id}'     ,'PersonController@destroyPlayer');
+
+        //people  category
+        $app->get('players/categories'                , 'PersonCategoryController@index');
+        $app->get('players/categories/create'         , 'PersonCategoryController@create');
+        $app->get('players/categories/{token}/edit'   , 'PersonCategoryController@edit');
+        $app->post('players/categories'               , 'PersonCategoryController@store');
+        $app->put('players/categories/{id}'           , 'PersonCategoryController@update');
+        $app->delete('players/categories/{id}'        , 'PersonCategoryController@destroy');
 
         //teams
-        $app->get('teams'       , 'TeamController@index');
-        $app->get('teams/create', 'TeamController@create');
-        $app->get('teams/{token}','TeamController@edit');
-        $app->post('teams'      , 'TeamController@store');
-        $app->put('teams/{id}'  , 'TeamController@update');
-        $app->delete('teams/{id}','TeamController@destroy');
+        $app->get('teams'               , 'TeamController@index');
+        $app->get('teams/create'        , 'TeamController@create');
+        $app->get('teams/{token}/edit'  ,'TeamController@edit');
+        $app->post('teams'              , 'TeamController@store');
+        $app->put('teams/{id}'          , 'TeamController@update');
+        $app->delete('teams/{id}'       ,'TeamController@destroy');
 
         //teams & categories
-        $app->get('categories'        , 'TeamCategoryController@index');
-        $app->get('categories/create' , 'TeamCategoryController@create');
-        $app->get('categories/{token}', 'TeamCategoryController@edit');
-        $app->post('categories'       , 'TeamCategoryController@store');
-        $app->put('categories/{id}'   , 'TeamCategoryController@update');
-        $app->delete('categories/{id}', 'TeamCategoryController@destroy');
+        $app->get('teams/categories'                , 'TeamCategoryController@index');
+        $app->get('teams/categories/create'         , 'TeamCategoryController@create');
+        $app->get('teams/categories/{token}/edit'   , 'TeamCategoryController@edit');
+        $app->post('teams/categories'               , 'TeamCategoryController@store');
+        $app->put('teams/categories/{id}'           , 'TeamCategoryController@update');
+        $app->delete('teams/categories/{id}'        , 'TeamCategoryController@destroy');
         
+
+        //teams
+        $app->get('items'               , 'ItemController@index');
+        $app->get('items/create'        , 'ItemController@create');
+        $app->get('items/{token}/edit'  ,'ItemController@edit');
+        $app->post('items'              , 'ItemController@store');
+        $app->put('items/{id}'          , 'ItemController@update');
+        $app->delete('items/{id}'       ,'ItemController@destroy');
+
 
 /*
         //groups & teams

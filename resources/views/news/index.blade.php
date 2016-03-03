@@ -21,15 +21,21 @@
 	        	<tr class="">
 		            <th></th>
 		            <th>Name</th>
+		            <th>Featured</th>
+		            <th>Ticker</th>
+		            <th>Order</th>
 		            <th>Status</th>
 	        	</tr>
 	    	</thead>
 	    	<tbody>
 	    	@foreach( $posts as $post )
 	        	<tr class="">
-		            <td><a href="/news/{{ $post->token }}" class="btn btn-info btn-circle btn-xs"><i class="material-icons">edit</i></a> </td>
+		            <td><a href="{{ url('/news/'.$post->token.'/edit') }}" class="btn btn-info btn-circle btn-xs"><i class="material-icons">edit</i></a> </td>
 		            <td>{{ $post->title }} </td>
-		            <td>{{ $post->is_active ? 'Yes' : 'No' }}</td>
+		            <td>{{ $post->is_featured ? 'Yes' : 'No' }}</td>
+		            <td>{{ $post->is_ticker ? 'Yes' : 'No' }}</td>
+		            <td>{{ $post->order }} </td>
+		            <td>{{ $post->status ? 'Active' : 'Inactive ' }}</td>
 	        	</tr>
 	        @endforeach
 	    	</tbody>	    	

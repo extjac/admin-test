@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Item;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class NewsController extends Controller
+class ItemController extends Controller
 {
 
-    protected $title = 'News';
+    protected $title = 'Items';
 
-    protected $path = 'news';
+    protected $path = 'item';
 
-    protected $reDirect = 'news';
+    protected $reDirect = 'items';
 
 
     /**
@@ -28,6 +28,7 @@ class NewsController extends Controller
     }
 
 
+
     /**
      * Display a listing of the resource.
      *
@@ -35,15 +36,14 @@ class NewsController extends Controller
      */
     public function index()
     {
-       $posts =  Post::select()
+       $items =  Item::select()
         ->where('org_id', $this->org )
-        ->where('type_id', 5)
-        ->orderBy('order')
+        ->orderBy('name')
         ->get();
 
         return view( $this->path.'.index' )
         ->with('title', $this->title )
-        ->with('posts', $posts );
+        ->with('items', $items );
     }
 
 
@@ -56,23 +56,23 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Post;
-        $post->token = $this->token();
-        $post->org_id = \Auth::user()->org_id; 
-        $post->site_id = $request->site_id; 
-        $post->type_id = 5; ///news
-        $post->parent_id = 0;
-        $post->title = $request->title;
-        $post->slug = $this->slug( $request->title );
-        $post->excerpt = $request->excerpt;
-        $post->content = $request->content;
-        $post->status = $request->status;
-        $post->order = $request->order;
-        $post->is_ticker = $request->is_ticker;
-        $post->is_featured = $request->is_featured;        
-        $post->save();
+        $item = new Item;
+        $item->token = $this->token();
+        $item->org_id = \Auth::user()->org_id; 
+        $item->site_id = $request->site_id; 
+        $item->type_id = 1; ///Online Registartion
+        $item->category_id = $request->category_id;
+        $item->name = $request->name;
+        $item->slug = $this->slug( $request->name );
+        $item->excerpt = $request->excerpt;
+        $item->description = $request->description;
+        $item->is_active = $request->is_active;
+        $item->price = $request->price;
+        $item->currency = $request->currency;
+        $item->is_featured = $request->is_featured;        
+        $item->save();
 
-        return redirect('news/'.$post->token.'/edit' );
+        return redirect('/items/'.$item->token.'/edit' );
     }
 
     /**
@@ -84,19 +84,20 @@ class NewsController extends Controller
      */
     public function update(Request $request, $token)
     {
-        $post = Post::where('token', $token )->first();
+        $item = Item::where('token', $token )->first();
         
-        $post->title = $request->title;
-        $post->slug = $this->slug( $request->title );
-        $post->excerpt = $request->excerpt;
-        $post->content = $request->content;
-        $post->status = $request->status;
-        $post->order = $request->order;
-        $post->is_ticker = $request->is_ticker;
-        $post->is_featured = $request->is_featured;        
-        $post->save();
+        $item->category_id = $request->category_id;
+        $item->name = $request->name;
+        $item->slug = $this->slug( $request->name );
+        $item->excerpt = $request->excerpt;
+        $item->description = $request->description;
+        $item->is_active = $request->is_active;
+        $item->price = $request->price;
+        $item->currency = $request->currency;
+        $item->is_featured = $request->is_featured; 
+        $item->save(); 
 
-        return redirect('news/'.$post->token.'/edit' );
+        return redirect('items/'.$item->token.'/edit' );
     }
 
     /**
@@ -130,11 +131,11 @@ class NewsController extends Controller
      */
     public function edit( $token )
     {
-        $post = Post::where('token', $token )->first();
+        $item = Item::where('token', $token )->first();
 
         return view( $this->path.'.edit' )
         ->with('title', $this->title )
-        ->with('post', $post );
+        ->with('item', $item );
     }
 
 
@@ -178,7 +179,7 @@ class NewsController extends Controller
         $post->picture = $filename ;
         $post->save() ; 
         
-        return 'http://files.local/photos/posts/'.$id.'/'.$filename ; //url('/images/posts/'.$id.'/'.$filename);
+        return 'http://files.local/photos/items/'.$id.'/'.$filename ; //url('/images/posts/'.$id.'/'.$filename);
     }
 
     

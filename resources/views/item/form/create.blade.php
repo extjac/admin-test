@@ -1,5 +1,5 @@
 
-<form name="form" class="form" method="post" action="{{ url('/news') }}" autocomplete="off">
+<form name="form" class="form" method="post" action="{{ url('/items') }}" autocomplete="off">
 <input name="type" id="type" type="hidden" value="1">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -19,39 +19,32 @@
     <div class="col-md-8">
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="form-group"> 
-                <label class="control-label" for="title">Title * </label>
-                <input  type="text" name="title" id="post_title" placeholder="Enter title" required class="form-control" value="">
+                <label class="control-label" for="name">Name </label>
+                <input  type="text" name="name" id="name" placeholder="Enter title" required class="form-control" value="">
             </div>
         </div>     
+        <div class="col-md-3">
+            <div class="form-group"> 
+                <label class="control-label" for="is_featured">Currency</label>
+                <select name='currency' id="currency"  class="form-control c-select"  required>
+                  <option value='' >-select-</option>
+                  <option value='USD' >USD</option>
+                  <option value="CAD" >CAD</option>
+                </select>   
+            </div>
+        </div>          
+        <div class="col-md-3">
+            <div class="form-group"> 
+                <label class="control-label" for="order">Price</label>
+                <input  type="text" name="price" id="price" placeholder="Enter price" required class="form-control" minlength="1" >
+            </div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="col-md-3">
-            <div class="form-group"> 
-                <label class="control-label" for="order">Order *</label>
-                <input  type="number" name="order" id="order" placeholder="Enter order" required class="form-control" minlength="1" maxlength="2" value="">
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group"> 
-                <label class="control-label" for="is_featured">Featured</label>
-                <select name='is_featured' id="is_featured"  class="form-control c-select"  required>
-                  <option value='0'   >No</option>
-                  <option value="1"  >Yes</option>
-                </select>   
-            </div>
-        </div>  
-        <div class="col-md-3">
-            <div class="form-group"> 
-                <label class="control-label" for="is_ticker">Ticker</label>
-                <select name='is_ticker' id="is_ticker"  class="form-control  c-select"  required>
-                  <option value='0'  >No</option>
-                  <option value="1"  >Yes</option>
-                </select>   
-            </div>
-        </div>  
+
         <div class="col-md-3">
             <div class="form-group"> 
                 <label class="control-label" for="status">Status *</label>
@@ -83,8 +76,8 @@
       <div class="row">
         <div class="col-md-12">
             <div class="form-group"> 
-                <label class="control-label" for="excerpt">Content </label>
-                <textarea name="content" id="content" class="form-control editor"  rows="10" ></textarea>
+                <label class="control-label" for="description">description </label>
+                <textarea name="description" id="description" class="form-control editor"  rows="10" ></textarea>
             </div>
         </div>
       </div><!-- /row -->

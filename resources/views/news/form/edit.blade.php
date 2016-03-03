@@ -57,8 +57,8 @@
             <div class="form-group"> 
                 <label class="control-label" for="status">Status *</label>
                 <select name='status' id="status" class="form-control c-select"  required>
-                  <option value='0' <?php if( $post->status==0) echo 'selected' ?> >Draft</option>
-                  <option value="1" <?php if( $post->status==1) echo 'selected' ?> >Published</option>
+                  <option value='0' <?php if( $post->status==0) echo 'selected' ?> >Inactive </option>
+                  <option value="1" <?php if( $post->status==1) echo 'selected' ?> >Active</option>
                 </select>   
             </div>
         </div>  

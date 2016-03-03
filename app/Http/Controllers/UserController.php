@@ -96,7 +96,6 @@ class UserController extends Controller
         $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        
         $user->birthday = $request->birthday;
         $user->gender = $request->gender;
         $user->address = $request->address;
@@ -109,7 +108,7 @@ class UserController extends Controller
         $user->is_active = $request->is_active;
         $user->save();
 
-        return redirect( '/users/' . $user->token );
+        return redirect( '/users/' . $user->token.'/edit' );
     }
 
 
@@ -142,11 +141,9 @@ class UserController extends Controller
                     ->withInput();              
         }
 
-        $user->org_id = $this->org_id; 
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
-        $user->password = $request->password ? bcrypt($request->password) : $user->password ;
         $user->birthday = $request->birthday;
         $user->gender = $request->gender;
         $user->address = $request->address;
@@ -159,7 +156,38 @@ class UserController extends Controller
         $user->notes = $request->notes;
         $user->save();
 
-        return redirect( '/users/' . $user->token );
+        return redirect( '/users/' . $user->token .'/edit');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePassword(Request $request, $token )
+    {
+        $user =  User::where( 'token', $token )
+        ->where('org_id',  $this->org_id )
+        ->first();
+
+        $v = \Validator::make( $request->all(), [
+            'password'      => 'min:6',
+        ]);
+
+        if( $v->fails() )
+        {
+            //return response( [ $v->errors()->toArray() ], 422 );
+            return redirect('/users/'.$user->token)
+                    ->withErrors( $v )
+                    ->withInput();              
+        }
+
+        $user->password = $request->password ? bcrypt($request->password) : $user->password ;
+        $user->save();
+
+        return redirect( '/users/' . $user->token .'/edit');
     }
 
 
@@ -249,7 +277,6 @@ class UserController extends Controller
             'first_name'    => 'required|max:255',
             'last_name'     => 'required|max:255',
             'email'         => 'required|email|max:255',
-            'password'      => 'min:6',
         ]);
 
         if( $v->fails() )

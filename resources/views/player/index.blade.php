@@ -30,7 +30,7 @@
 	    	<tbody>
 	    	@foreach( $persons as $person )
 	        	<tr class="">
-		            <td><a href="/players/{{ $person->token }}" class="btn btn-info btn-circle btn-xs"><i class="material-icons">edit</i></a> </td>
+		            <td><a href="/players/{{ $person->token }}/edit" class="btn btn-info btn-circle btn-xs"><i class="material-icons">edit</i></a> </td>
 		            <td>{{ $person->first_name }} {{ $person->last_name }}</td>
 		            <td>{{ $person->email  }}</td>
 		            <td>{{ $person->primary_phone }}</td>

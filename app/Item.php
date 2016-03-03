@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class Item extends Model
 {
 
-	protected $table = 'groups';
+	protected $table = 'items';
 
 	public $primaryKey = 'id';
+
 
 
     /**
@@ -18,7 +19,6 @@ class Team extends Model
      * @var array
      */
     protected $fillable = [
-        
     ];
 
     /**
@@ -26,8 +26,7 @@ class Team extends Model
      *
      * @var array
      */
-    protected $hidden = [
-        'created_at', 'deleted_at','updated_at'
+    protected $hidden = [        
     ];
 
     /**
@@ -36,18 +35,12 @@ class Team extends Model
      * @var array
      */
     protected $guarded = [
-       
-    ];  
+    ];    
 
 
-    public function category()
+    public function children()
     {
-        return $this->hasOne('App\TeamCategory', 'id', 'category_id' );
-    }
-
-    public function sport()
-    {
-        return $this->hasOne('App\Sport', 'id', 'sport_id' );
+        return $this->hasMany('App\Post', 'parent_id', 'id' )->orderBy('order');
     }
 
 }

@@ -89,7 +89,7 @@
 
 		  @foreach( $posts as $post)
 
-		    <li>{{ $post->title }} <a href="/posts/{{ $post->token }}" class="btn btn-link btn-xs "> edit </a>
+		    <li>{{ $post->title }} <a href="{{ url('/posts/'. $post->token. '/edit') }}" class="btn btn-link btn-xs "> edit </a>
 
 			@if(  $post->children )
 
@@ -97,7 +97,7 @@
 		    
 		      	@foreach( $post->children as $child )
 		    
-		        <li>{{ $child->title }} <a href="/posts/{{ $child->token }}" class="btn btn-link btn-xs "> edit </a></li>
+		        <li>{{ $child->title }} <a href="{{ url('/posts/'. $child->token .'/edit') }}" class="btn btn-link btn-xs "> edit </a></li>
 		    
 		        @endforeach	
 		    

@@ -76,9 +76,8 @@
 			            <div class="form-group"> 
 			                <label class="control-label" for="status">Status *</label>
 			                <select name='status' id="status"  class="form-control"  required>
-			                  <option value='0'>Draft</option>
-			                  <option value="1">Published</option>
-			                  <option value="2">Unpublished</option>
+			                  <option value='0'>Inactive</option>
+			                  <option value="1">Active</option>
 			                </select>   
 			            </div>
 			        </div>  

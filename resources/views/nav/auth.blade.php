@@ -43,10 +43,10 @@
   <!-- User dropdown -->
   <li class="nav-item dropdown">
     <a class="nav-link active dropdown-toggle p-a-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false">
-      <img src="//scontent-yyz1-1.xx.fbcdn.net/hprofile-frc3/v/t1.0-1/c0.0.160.160/p160x160/1486848_10153538293710214_745038000_n.jpg?oh=6b192b73be76d44043ee374f59e7a455&oe=574CD115" alt="Avatar" class="img-circle" width="40">
+      Me
     </a>
     <div class="dropdown-menu dropdown-menu-right dropdown-menu-list" aria-labelledby="Preview">
-      <a class="dropdown-item" href="{{ url('users/me') }}"><i class="material-icons md-18">lock</i> <span class="icon-text">Edit Account</span></a>
+      <a class="dropdown-item" href="{{ url('/users/'.\Auth::user()->token.'/edit') }}"><i class="material-icons md-18">lock</i> <span class="icon-text">Edit Account</span></a>
       <a class="dropdown-item" href="{{ url('logout') }}"><i class="material-icons">exit_to_app</i> Logout</a>
     </div>
   </li>
@@ -68,13 +68,14 @@
 	<li class="nav-item ">
 		<a class="nav-link" href="#"><i class="material-icons">group</i><span class="icon-text">Teams</span></a>
 	     	<ul>
-	          <li><a href="{{ url('/categories') }}"> <i class="material-icons">keyboard_arrow_right</i> Categroies</a> </li>
+	          <li><a href="{{ url('/teams/categories') }}"> <i class="material-icons">keyboard_arrow_right</i> Categroies/Level </a> </li>
 	          <li><a href="{{ url('/teams') }}"><i class="material-icons">keyboard_arrow_right</i> Teams </a></li>
 	        </ul>				
 	</li>
 	<li class="nav-item ">
 		<a class="nav-link" href="#"><i class="material-icons">person</i><span class="icon-text">Players</span></a>
 	     	<ul>
+
 	          <li><a href="{{ url('/players') }}"><i class="material-icons">keyboard_arrow_right</i> Players </a></li>
 	        </ul>				
 	</li>

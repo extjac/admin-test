@@ -25,7 +25,7 @@
 	    	<tbody>
 	    	@foreach($locations as $location)
 	        	<tr class="">
-		            <td><a href="/locations/{{ $location->token }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> edit</a> </td>
+		            <td><a href="{{ url('/locations/'.$location->token.'/edit') }}" class="btn btn-info btn-circle btn-xs"><i class="material-icons">edit</i> </td>
 		            <td>{{ $location->name }}</td>
 		            <td>{{ $location->is_active ? 'Yes' : 'No' }}</td>
 	        	</tr>
