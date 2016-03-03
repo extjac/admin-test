@@ -25,7 +25,7 @@
   <div class="btn-group">
     <button type="button" class="btn btn-primary-outline dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">settings</i> Actions</button>
     <div class="dropdown-menu">
-    	<a class="dropdown-item" href="{{ url('/events/create') }}">Create Event</a>
+    	<a class="dropdown-item" href="{{ url('/items/create') }}">Create Event</a>
     	<div class="dropdown-divider"></div>
       	<a class="dropdown-item" href="{{ url('/posts/create') }}">Create Page</a>
       	<a class="dropdown-item" href="{{ url('/news/create') }}">Create News</a>
