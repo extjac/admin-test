@@ -133,10 +133,10 @@
 
   <li class="nav-item <?php if( \Request::segment(1)=='organizations' ) echo 'open' ?>">
     <a class="nav-link" href="#">
-      <i class="material-icons">settings</i><span class="icon-text">Organization</span>
+      <i class="material-icons">settings</i><span class="icon-text">Settings</span>
     </a>
       <ul>
-          <li><a href="{{ url('/organizations') }}"><i class="material-icons">keyboard_arrow_right</i> Update </a></li>
+          <li><a href="{{ url('/organizations') }}"><i class="material-icons">keyboard_arrow_right</i> Organization </a></li>
         </ul>       
   </li> 
 
