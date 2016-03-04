@@ -6,8 +6,7 @@
   <div class="page animsition vertical-align text-center">
     <div class="page-content vertical-align-middle">
       <div class="brand">
-        
-        <h2 class="brand-text">SMAPP</h2>
+        <h2 class="brand-text">admin</h2>
       </div>
       <p>Sign-in</p>
 
