@@ -90,7 +90,7 @@
 		    </div>
 			@endif
 
-			<div class="card">
+			<div class="card" >
 				<div class="card-block">
 					@yield('content')
 				</div>
@@ -126,7 +126,7 @@
 	*/   
 
 	var DataTable = $.fn.dataTable;
-	
+
 	$.extend( true, DataTable.defaults, {
 		dom:
 			"<'row'<'col-sm-6'l><'col-sm-6'f>>" +

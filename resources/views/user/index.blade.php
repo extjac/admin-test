@@ -21,7 +21,7 @@
 	    	<tbody>
 	    	@foreach( $users as $user )
 	        	<tr class="">
-		            <td><a href="/users/{{ $user->token }}/edit" class="btn btn-info btn-xs btn-rounded"> <i class="material-icons">edit</i>  </a> </td>
+		            <td><a href="/users/{{ $user->token }}/edit" class="btn btn-info btn-sm btn-circle">  <i class="material-icons">edit</i> </a> </td>
 		            <td>{{ $user->first_name }} {{ $user->last_name }}</td>
 		            <td>{{ $user->email }} </td>
 		            <td>{{ $user->is_active ? 'Yes' : 'No' }}</td>

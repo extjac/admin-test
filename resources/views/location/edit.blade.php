@@ -18,7 +18,7 @@
     <div class="col-md-9">
 
       <p>
-    		<button type="submit" class="btn btn-primary "data-loading-text="Please wait..."> Save Changes </button>
+    		<button type="submit" class="btn btn-primary btn-rounded" data-loading-text="Please wait..."> Save Changes </button>
     	</p>
 
     		<div class="row">

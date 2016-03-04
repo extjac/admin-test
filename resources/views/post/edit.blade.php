@@ -9,7 +9,7 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <a href="{{ url('/posts/create') }}" class="btn btn-success btn-rounded">New <i class="material-icons md-18">add</i></a>
-<button type="submit" class="btn btn-primary btn-save"  data-loading-text="Please wait...">Save Changes</button>
+<button type="submit" class="btn btn-primary btn-save btn-rounded"  data-loading-text="Please wait...">Save Changes</button>
  
 <hr>   
 <div class="row">
