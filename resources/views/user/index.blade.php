@@ -9,7 +9,7 @@
 <br>
 <div class="row">
 	<div class="col-md-12">
-	    <table id="locationsTable datatable" class="table table-striped "  >
+	    <table id="locationsTable datatable" class="table table-striped dataTables"  >
 	    	<thead>
 	        	<tr class="">
 		            <th></th>
