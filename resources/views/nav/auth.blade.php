@@ -130,6 +130,16 @@
           <li><a href="{{ url('/locations') }}"><i class="material-icons">keyboard_arrow_right</i> Locations </a></li>
         </ul>				
 	</li>	
+
+  <li class="nav-item <?php if( \Request::segment(1)=='organizations' ) echo 'open' ?>">
+    <a class="nav-link" href="#">
+      <i class="material-icons">settings</i><span class="icon-text">Organization</span>
+    </a>
+      <ul>
+          <li><a href="{{ url('/organizations') }}"><i class="material-icons">keyboard_arrow_right</i> Update </a></li>
+        </ul>       
+  </li> 
+
 </ul>
 <!-- // END Menu -->
 </div>

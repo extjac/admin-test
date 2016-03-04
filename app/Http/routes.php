@@ -160,6 +160,8 @@ Route::group(['middleware' => 'web'], function ( $app ) {
         $app->delete('items/categories/{id}'       , 'ItemCategoryController@destroy');
 
 
+        $app->get('organizations' , 'OrganizationController@edit');
+        $app->put('organizations' , 'OrganizationController@update');
     });
 
 });
