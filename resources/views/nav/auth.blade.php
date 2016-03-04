@@ -118,8 +118,7 @@
 			<i class="material-icons">bookmark_border</i><span class="icon-text">Schedule</span>
 		</a>
      	<ul>
-          <li><a href="#"><i class="material-icons">keyboard_arrow_right</i> Game </a></li>
-          <li><a href="#"><i class="material-icons">keyboard_arrow_right</i> Game </a></li>
+          <li><a href="#"><i class="material-icons">keyboard_arrow_right</i> Games </a></li>
           <li><a href="#"><i class="material-icons">keyboard_arrow_right</i> Torurnament </a></li>
         </ul>				
 	</li>		

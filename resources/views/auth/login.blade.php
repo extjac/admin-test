@@ -12,15 +12,15 @@
       <p>Sign-in</p>
 
 
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
 
-        @foreach ($errors->all() as $error)
-            {{ $error }}
-        @endforeach
+                @foreach ($errors->all() as $error)
+                    {{ $error }}
+                @endforeach
 
-    </div>
-@endif
+            </div>
+        @endif
 
        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
         {!! csrf_field() !!}
@@ -28,7 +28,7 @@
 
 
             <div class="form-group">
-                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required="">
+                    <input type="email" class="form-control " name="email" value="{{ old('email') }}" placeholder="Email" required="">
             </div>
 
             <div class="form-group">
