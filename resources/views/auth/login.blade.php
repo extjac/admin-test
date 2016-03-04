@@ -3,11 +3,12 @@
 
 @section('content')
   <!-- Page -->
+
   <div class="page animsition vertical-align text-center">
     <div class="page-content vertical-align-middle">
       <div class="brand">
         <h2 class="brand-text" align="center">
-            <i class="material-icons">person</i>
+            <i class="material-icons icons-person">person</i>
         </h2>
       </div>
 
