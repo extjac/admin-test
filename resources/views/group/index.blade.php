@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
 @include('common.breadcrumb')
-
-
 <div class="row">
 	<div class="col-md-12">
 	   	<a href="/teams/create" class="btn btn-success " >
@@ -11,7 +8,6 @@
 	    </a>
 	</div>
 </div>
-
 <div class="row">
 	<div class="col-md-12">
 	    <table id="datatable" class="table table-striped"  >
@@ -34,10 +30,7 @@
 	 	</table> 
   	</div>
 </div>
-
-
 @endsection
-
 @section('script')
 <script type="text/javascript" charset="utf-8">
 </script>

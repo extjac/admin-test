@@ -4,8 +4,6 @@
 @include('common.breadcrumb')
 
 
- 
-
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" href="#Details" data-toggle="tab">Details</a>

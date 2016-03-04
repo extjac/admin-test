@@ -8,9 +8,7 @@
 <input type="hidden" name="_method" value="PUT">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-      <a href="/posts/create" class="btn btn-success " >
-        <i class="material-icons">add</i> add  new
-      </a>
+<a href="{{ url('/posts/create') }}" class="btn btn-success btn-rounded">New <i class="material-icons md-18">add</i></a>
 <button type="submit" class="btn btn-primary btn-save"  data-loading-text="Please wait...">Save Changes</button>
  
 <hr>   

@@ -1,17 +1,12 @@
 @extends('layouts.app')
 @section('content')
-
 @include('common.breadcrumb')
-
-
 <div class="row">
 	<div class="col-md-12">
-	   	<a href="/locations/create" class="btn btn-success " >
-	      <i class="fa fa-plus"></i> Add 
-	    </a>
+	    <a href="{{ url('/locations/create') }}" class="btn btn-success btn-rounded">New <i class="material-icons md-18">add</i></a>
 	</div>
 </div>
-
+<br>
 <div class="row">
 	<div class="col-md-12">
 	    <table id="locationsTable datatable" class="table table-striped"  >
@@ -34,12 +29,9 @@
 	 	</table> 
   	</div>
 </div>
-
-
 @endsection
-
 @section('script')
 <script type="text/javascript" charset="utf-8">
-
+//
 </script>
 @endsection

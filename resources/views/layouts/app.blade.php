@@ -34,8 +34,33 @@
     });
     </script>
 </head>
+
 <body class="ls-top-navbar">
 	@include('nav.auth')
+
+
+	<!-- Sidebar   
+	<div class="sidebar sidebar-right top-md-navbar sidebar-light bg-white show-desktop" id="sidebarRight" >
+		<br><br><br><br><br>
+		<div class="sidebar-header center">
+		  <a href="#" class="btn btn-success btn-sm btn-rounded-deep">New Note <i class="material-icons md-18">add</i></a>
+		</div>
+		<div class="sidebar-header">MY NOTES</div>
+		<ul class="sidebar-filter">
+		  <li>
+		    <a href="#"><i class="material-icons text-primary">lens</i> Reminder 1</a>
+		  </li>
+		  <li>
+		    <a href="#"><i class="material-icons text-primary">lens</i> Reminder 2</a>
+		  </li>
+		  <li>
+		    <a href="#"><i class="material-icons text-primary">lens</i> Reminder 3</a>
+		  </li>
+		</ul>
+	</div>
+	<!-- // END Sidebar -->
+
+
 	<!-- Content -->
 	<div class="content-wrapper">
 		<div class="container-fluid">
@@ -45,6 +70,7 @@
 				<li><a href="#">Home</a></li>
 				<li class="active"> <a href="{{ url('/'.\Request::segment(1) ) }} ">{{ $title }}</a></li>
 			</ol>
+
 			<!-- // END Breadcrumb -->
 			<h1>{{ $title }}</h1>
 			<!--<p class="lead">Lorem ipsum d</p>-->
@@ -64,16 +90,18 @@
 		    </div>
 			@endif
 
-
 			<div class="card">
 				<div class="card-block">
-
 					@yield('content')
 				</div>
 			</div>
+
 			@include('common.footer')
+
 		</div>
 	</div>
+
+
 	<!-- // END Content -->
 	<!-- jQuery -->
 	<script src="{{ url('assets/admin/vendor/jquery.min.js') }}"></script>

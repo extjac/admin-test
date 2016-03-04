@@ -33,22 +33,7 @@ Route::group(['middleware' => 'web'], function ( $app ) {
 	/*
     Route::auth();
     Route::get('/home', 'HomeController@index');
-
-    Route::get('login', 'Auth\AuthController@showLoginForm');
-    Route::post('login', 'Auth\AuthController@login');
-    Route::get('logout', 'Auth\AuthController@logout');
-
-    // Registration Routes...
-    Route::get('register', 'Auth\AuthController@showRegistrationForm');
-    Route::post('register', 'Auth\AuthController@register');
-
-    // Password Reset Routes...
-    Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
-    Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
-    Route::post('password/reset', 'Auth\PasswordController@reset');
-*/
-
-
+    */
 
     //Auth
     $app->get('logout', 'Auth\AuthController@logout');
@@ -59,9 +44,9 @@ Route::group(['middleware' => 'web'], function ( $app ) {
 	$app->get('password/reset', 'Auth\AuthController@getPassword');
 	$app->post('password/email', 'Auth\AuthController@postPassword');
 
-
     /* auth */
-    $app->group(['middleware' => 'auth'], function ( $app ) {
+    $app->group(['middleware' => 'auth'], function ( $app ) 
+    {
     	
         $app->get('/', 'DashboardController@index');
         $app->get('home', 'DashboardController@index');
@@ -84,7 +69,6 @@ Route::group(['middleware' => 'web'], function ( $app ) {
         $app->put('customers/{id}'          , 'CustomerController@update');
         $app->put('customers/{id}/password' , 'CustomerController@updatePassword');
         $app->delete('customers/{id}'       , 'CustomerController@destroy');
-
 
         //CMS POST
         $app->get('posts'               , 'PostController@index');
@@ -140,8 +124,7 @@ Route::group(['middleware' => 'web'], function ( $app ) {
         $app->get('teams/categories/{token}/edit'   , 'TeamCategoryController@edit');
         $app->post('teams/categories'               , 'TeamCategoryController@store');
         $app->put('teams/categories/{id}'           , 'TeamCategoryController@update');
-        $app->delete('teams/categories/{id}'        , 'TeamCategoryController@destroy');
-        
+        $app->delete('teams/categories/{id}'        , 'TeamCategoryController@destroy');       
 
         //items
         $app->get('items'               , 'ItemController@index');
@@ -158,7 +141,6 @@ Route::group(['middleware' => 'web'], function ( $app ) {
         $app->post('items/categories'              , 'ItemCategoryController@store');
         $app->put('items/categories/{id}'          , 'ItemCategoryController@update');
         $app->delete('items/categories/{id}'       , 'ItemCategoryController@destroy');
-
 
         $app->get('organizations' , 'OrganizationController@edit');
         $app->put('organizations' , 'OrganizationController@update');

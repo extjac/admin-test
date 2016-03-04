@@ -5,7 +5,7 @@
 <!-- Sidebar toggle -->
 <button class="navbar-toggler pull-xs-left hidden-md-up first-child-xs" type="button" data-toggle="sidebar" data-target="#sidebar"><span class="material-icons">menu</span></button>
 <!-- Brand -->
-<span class="navbar-brand first-child-md">:</span>
+<span class="navbar-brand first-child-md">{{ $title }}</span>
 <!-- Search -->
 <form class="form-inline pull-xs-left hidden-sm-down">
   <div class="input-group">
@@ -38,6 +38,7 @@
 		<a class="dropdown-item" href="{{ url('/locations/create') }}">Create Locations</a>      	
     </div>
   </div>
+
 <!-- Top Menu -->
 <ul class="nav navbar-nav pull-xs-right hidden-md-down ">
   <!-- User dropdown -->
@@ -53,6 +54,7 @@
   <!-- // END User dropdown -->
 </ul>
 <!-- // END Menu -->		
+
 </nav>
 <!-- // END Navbar -->
 
@@ -76,6 +78,7 @@
           <li><a href="{{ url('/news') }}"><i class="material-icons">keyboard_arrow_right</i> News </a></li>
         </ul>				
 	</li>	
+
 	<li class="nav-item <?php if( \Request::segment(1)=='items' OR \Request::segment(1)=='items' ) echo 'open' ?>  ">
 		<a class="nav-link" href="#">
 			<i class="material-icons">store</i><span class="icon-text">Store</span>
@@ -83,8 +86,11 @@
      	<ul>     
           <li><a href="{{ url('/items/categories') }}"><i class="material-icons">keyboard_arrow_right</i> Categories </a> </li>
           <li><a href="{{ url('/items') }}"><i class="material-icons">keyboard_arrow_right</i> Registration / Events</a> </li>
+          <li><a href="{{ url('/orders') }}"><i class="material-icons">keyboard_arrow_right</i> Orders </a> </li>
+          <li><a href="{{ url('/payments') }}"><i class="material-icons">keyboard_arrow_right</i> Payments </a> </li>
         </ul>				
 	</li>		
+
 	<li class="nav-item <?php if( \Request::segment(1)=='teams'  ) echo 'open' ?> ">
 		<a class="nav-link" href="#">	
 			<i class="material-icons">group</i><span class="icon-text">Teams</span>
@@ -94,6 +100,7 @@
           <li><a href="{{ url('/teams') }}"><i class="material-icons">keyboard_arrow_right</i> Teams </a></li>
         </ul>				
 	</li>
+
 	<li class="nav-item <?php if( \Request::segment(1)=='players'  ) echo 'open' ?> ">
 		<a class="nav-link" href="#">
 			<i class="material-icons">person</i><span class="icon-text">Players</span>
@@ -102,6 +109,7 @@
           <li><a href="{{ url('/players') }}"><i class="material-icons">keyboard_arrow_right</i> Players </a></li>
         </ul>				
 	</li>
+
 	<li class="nav-item <?php if( \Request::segment(1)=='customers' OR \Request::segment(1)=='users' ) echo 'open' ?> ">
 		<a class="nav-link" href="#">
 			<i class="material-icons">lock</i><span class="icon-text">Accounts</span>
@@ -122,6 +130,7 @@
           <li><a href="#"><i class="material-icons">keyboard_arrow_right</i> Torurnament </a></li>
         </ul>				
 	</li>		
+
 	<li class="nav-item <?php if( \Request::segment(1)=='locations' ) echo 'open' ?>">
 		<a class="nav-link" href="#">
 			<i class="material-icons">map</i><span class="icon-text">Locations</span>
