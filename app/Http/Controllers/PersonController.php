@@ -87,25 +87,29 @@ class PersonController extends Controller
         $person = new Person;
         $person->token = $this->token();
         $person->org_id = $this->org_id; 
+        $person->type_id = $request->type;
+
         $person->first_name = $request->first_name;
         $person->last_name = $request->last_name;
+        $person->full_name = $request->first_name . ' ' . $request->last_name;
         $person->birthday = $request->birthday;
         $person->gender = $request->gender;
         $person->bio = $request->bio;
         $person->height = $request->height;
         $person->weight = $request->weight;
-        $person->position = $request->position;
+
         $person->email = $request->email;
         $person->secondary_email = $request->secondary_email;
         $person->primary_phone = $request->primary_phone;
         $person->secondary_phone = $request->secondary_phone;       
-        $person->gender = $request->gender;
+
         $person->address = $request->address;
         $person->address1 = $request->address1;
         $person->city = $request->city;
         $person->postal_code = $request->postal_code;
         $person->state = $request->state;
         $person->country = $request->country;
+
         $person->is_active = $request->is_active;
         $person->save();
 
@@ -142,25 +146,27 @@ class PersonController extends Controller
 
         $person->first_name = $request->first_name;
         $person->last_name = $request->last_name;
+        $person->full_name = $request->first_name . ' ' . $request->last_name;        
         $person->birthday = $request->birthday;
         $person->gender = $request->gender;
+
         $person->bio = $request->bio;
         $person->height = $request->height;
         $person->weight = $request->weight;
-        $person->position = $request->position;
+
         $person->email = $request->email;
-        $person->secondary_email = $request->secondary_email;
         $person->primary_phone = $request->primary_phone;
         $person->secondary_phone = $request->secondary_phone;       
-        $person->gender = $request->gender;
+
         $person->address = $request->address;
         $person->address1 = $request->address1;
         $person->city = $request->city;
         $person->postal_code = $request->postal_code;
         $person->state = $request->state;
         $person->country = $request->country;
+
         $person->is_active = $request->is_active;
-        $person->position = $request->position;
+
         $person->notes = $request->notes;
         $person->save();
 

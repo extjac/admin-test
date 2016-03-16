@@ -14,7 +14,6 @@
 	        	<tr class="">
 		            <th></th>
 		            <th>Name</th>
-		            <th>Category</th>
 		            <th>Price</th>
 		            <th>Status</th>
 	        	</tr>
@@ -24,7 +23,6 @@
 	        	<tr class="">
 		            <td><a href="{{ url('/items/'.$item->token.'/edit') }}" class="btn btn-info btn-circle btn-xs"><i class="material-icons">edit</i></a> </td>
 		            <td>{{ $item->name }} </td>
-		            <td>{{ $item->category->name }}</td>
 		            <td>{{ $item->currency}} {{ $item->price}} </td>
 		            <td>{{ $item->is_active ? 'Active' : 'Inactive ' }}</td>
 	        	</tr>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TeamCategory extends Model
 {
 
-    protected $table = 'groups_categories';
+    protected $table = 'teams_categories';
 
     public $primaryKey = 'id';
 

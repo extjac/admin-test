@@ -8,7 +8,7 @@
  
 <hr>   
 <div class="row">
-
+<!--
     <div class="col-md-4">
 
     <a href="javascript:;" class="btn-upload-image">
@@ -16,8 +16,8 @@
     </a>
         
     </div>
-
-    <div class="col-md-8">
+-->
+    <div class="col-md-12">
 
       <div class="row">
         <div class="col-md-6">
@@ -46,18 +46,7 @@
 
       <div class="row">
 
-        <div class="col-md-3">
-            <div class="form-group"> 
-                <label class="control-label" for="category_id">Category</label>
-                <?php $categories = App\ItemCategory::where('org_id', Auth::user()->org_id)->where('is_active', 1)->get() ?>
-                <select name='category_id' id="category_id" class="form-control c-select"  required>
-                  <option value=''  >-select- </option>
-                  @foreach( $categories as $category )
-                  <option value="{{ $category->id }}"  <?php if( $item->category_id==$category->id) echo 'selected' ?>  > {{ $category->name }}</option>
-                  @endforeach
-                </select>
-            </div>
-        </div>  
+
 
         <div class="col-md-3">
             <div class="form-group"> 
@@ -102,7 +91,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="form-group"> 
-                <label class="control-label" for="description">description </label>
+                <label class="control-label" for="description">Description </label>
                 <textarea name="description" id="description" class="form-control editor"  rows="10" >{{ $item->description }}</textarea>
             </div>
         </div>

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class Order extends Model
 {
 
-	protected $table = 'teams';
+	protected $table = 'orders';
 
 	public $primaryKey = 'id';
 
@@ -37,17 +37,9 @@ class Team extends Model
      */
     protected $guarded = [
        
-    ];  
+    ];    
 
 
-    public function category()
-    {
-        return $this->hasOne('App\TeamCategory', 'id', 'category_id' );
-    }
 
-    public function sport()
-    {
-        return $this->hasOne('App\Sport', 'id', 'sport_id' );
-    }
 
 }

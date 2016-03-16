@@ -19,20 +19,22 @@
     <div class="col-md-10">
 
 
-
-        <div class="row">
-            <div class="col-md-3">
+       <div class="row">
+            <div class="col-md-6">
                 <div class="form-group"> 
                     <label class="control-label" for="name">First Name </label>
                     <input  type="text" name="first_name" id="first_name" placeholder="Enter first name" required class="form-control" value="{{ $person->first_name }}">
                 </div>
             </div>   
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="form-group"> 
                     <label class="control-label" for="name">Last Name </label>
                     <input  type="text" name="last_name" id="last_name" placeholder="Enter last name" required class="form-control"  value="{{ $person->last_name }}">
                 </div>
             </div>   
+        </div><!-- row -->
+
+        <div class="row"> 
             <div class="col-md-3">
                 <div class="form-group"> 
                     <label class="control-label" for="name">Birthday </label>
@@ -48,6 +50,18 @@
                     </select>   
                 </div>
             </div>  
+            <div class="col-md-3">
+                <div class="form-group"> 
+                    <label class="control-label" for="height">Height </label>
+                    <input  type="text" name="height" id="height" placeholder="Enter height"  class="form-control" value="{{ $person->height }}">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group"> 
+                    <label class="control-label" for="weight">Weight</label>
+                    <input  type="text" name="weight" id="weight" placeholder="Enter weight"  class="form-control" value="{{ $person->weight }}">
+                </div>
+            </div>              
         </div><!-- row -->
 
 
@@ -62,18 +76,12 @@
 
 
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="form-group"> 
-                    <label class="control-label" for="email">Email <small>(primary)</small> </label>
-                    <input  type="email" name="email" id="email" placeholder="Enter email"  class="form-control" value="{{ $person->email }}">
+                    <label class="control-label" for="email">Email </label>
+                    <input  type="email" name="email" id="email" placeholder="Enter email"  class="form-control" value="{{ $person->email }}" required>
                 </div>
-            </div>   
-            <div class="col-md-3">
-                <div class="form-group"> 
-                    <label class="control-label" for="secondary_email">Email <small>(seconday)</small> </label>
-                    <input  type="email" name="secondary_email" id="secondary_email" placeholder="Enter email"  class="form-control" value="{{ $person->secondary_email }}">
-                </div>
-            </div>           
+            </div>            
             <div class="col-md-3">
                 <div class="form-group"> 
                     <label class="control-label" for="primary_phone">Phone <small>(primary)</small> </label>
@@ -142,32 +150,7 @@
       </div><!-- /row -->
 
 
-      <div class="row">
-        <div class="col-md-3">
-            <div class="form-group"> 
-                <label class="control-label" for="height">Height </label>
-                <input  type="text" name="height" id="height" placeholder="Enter height"  class="form-control" value="{{ $person->height }}">
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group"> 
-                <label class="control-label" for="weight">Weight</label>
-                <input  type="text" name="weight" id="weight" placeholder="Enter weight"  class="form-control" value="{{ $person->weight }}">
-            </div>
-        </div>        
-        <div class="col-md-3">
-            <div class="form-group"> 
-                <label class="control-label" for="position">Position</label>
-                  <select name='position' id="position"  class="form-control"  >
-                  <?php $positions = App\SportsPosition::where('is_active', 1)->get() ?>
-                    <option value=>-select-</option>
-                    @foreach( $positions as $position )
-                    <option value="{{ $position->id }}" {{ $position->id==$person->position ? 'selected' : '' }} >{{ $position->name }}</option>
-                    @endforeach
-                  </select>  
-            </div>
-        </div>          
-      </div><!-- /row -->
+
 
 
       <div class="row">

@@ -84,10 +84,10 @@
 			<i class="material-icons">store</i><span class="icon-text">Store</span>
 		</a>
      	<ul>     
+      <!--
           <li><a href="{{ url('/items/categories') }}"><i class="material-icons">keyboard_arrow_right</i> Categories </a> </li>
+          -->
           <li><a href="{{ url('/items') }}"><i class="material-icons">keyboard_arrow_right</i> Registration / Events</a> </li>
-          <li><a href="{{ url('/orders') }}"><i class="material-icons">keyboard_arrow_right</i> Orders </a> </li>
-          <li><a href="{{ url('/payments') }}"><i class="material-icons">keyboard_arrow_right</i> Payments </a> </li>
         </ul>				
 	</li>		
 

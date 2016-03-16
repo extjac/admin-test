@@ -18,13 +18,13 @@
     <div class="col-md-10">
 
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-6">
 			    <div class="form-group"> 
 			        <label class="control-label" for="name">First Name </label>
 			        <input  type="text" name="first_name" id="first_name" placeholder="Enter first name" required class="form-control">
 			    </div>
 			</div>   
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="form-group"> 
                     <label class="control-label" for="name">Last Name </label>
                     <input  type="text" name="last_name" id="last_name" placeholder="Enter last name" required class="form-control">
@@ -36,13 +36,13 @@
 
         <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="form-group"> 
                     <label class="control-label" for="email">Email </label>
                     <input  type="email" name="email" id="email" placeholder="Enter email" required class="form-control">
                 </div>
             </div>   
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="form-group"> 
                     <label class="control-label" for="password">Password </label>
                     <input  type="password" name="password" id="password" placeholder="Enter password" required class="form-control">

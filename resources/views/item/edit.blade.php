@@ -5,17 +5,14 @@
 
 
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#Details" data-toggle="tab">Details</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#Orders" data-toggle="tab">Orders</a>
-  </li>
+  <li class="nav-item"> <a class="nav-link active" href="#Details" data-toggle="tab">Details</a> </li>
+  <li class="nav-item"> <a class="nav-link" href="#Pictures" data-toggle="tab">Pictures</a> </li>
+<li class="nav-item"> <a class="nav-link" href="#Orders" data-toggle="tab">Participants</a> </li>  
 </ul>
 <div class="tab-content">
   <div class="tab-pane active" id="Details" style="padding-top: 10px"> @include('item.form.edit') </div>
-  <div class="tab-pane" id="Orders"  style="padding-top: 10px"> soon </div>
-
+  <div class="tab-pane" id="Orders"  style="padding-top: 10px"> @include('item.table.participants') </div>
+  <div class="tab-pane" id="Pictures"  style="padding-top: 10px"> Pictures soon </div>
 </div>
 
 

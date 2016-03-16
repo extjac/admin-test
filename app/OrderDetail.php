@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class OrderDetail extends Model
 {
 
-	protected $table = 'teams';
+	protected $table = 'orders_details';
 
 	public $primaryKey = 'id';
 
@@ -37,17 +37,16 @@ class Team extends Model
      */
     protected $guarded = [
        
-    ];  
+    ];    
 
 
-    public function category()
+    static public function findParticipants( $token )
     {
-        return $this->hasOne('App\TeamCategory', 'id', 'category_id' );
+        
+        $result = OrderDetail::where('item_id', $token )->get();
+        
+        return $result;
     }
 
-    public function sport()
-    {
-        return $this->hasOne('App\Sport', 'id', 'sport_id' );
-    }
 
 }

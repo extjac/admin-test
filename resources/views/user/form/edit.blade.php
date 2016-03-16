@@ -20,18 +20,20 @@
 
 
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-6">
 			    <div class="form-group"> 
 			        <label class="control-label" for="name">First Name </label>
 			        <input  type="text" name="first_name" id="first_name" placeholder="Enter first name" required class="form-control" value="{{ $user->first_name }}">
 			    </div>
 			</div>   
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="form-group"> 
                     <label class="control-label" for="name">Last Name </label>
                     <input  type="text" name="last_name" id="last_name" placeholder="Enter last name" required class="form-control"  value="{{ $user->last_name }}">
                 </div>
             </div>   
+            </div><!-- row -->
+            <div class="row">
             <div class="col-md-3">
                 <div class="form-group"> 
                     <label class="control-label" for="name">Birthday </label>
@@ -64,18 +66,13 @@
 
 
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="form-group"> 
-                    <label class="control-label" for="email">Email <small>(primary)</small> </label>
+                    <label class="control-label" for="email">Email </label>
                     <input  type="email" name="email" id="email" placeholder="Enter email"  class="form-control" value="{{ $user->email }}">
                 </div>
             </div>   
-            <div class="col-md-3">
-                <div class="form-group"> 
-                    <label class="control-label" for="secondary_email">Email <small>(seconday)</small> </label>
-                    <input  type="email" name="secondary_email" id="secondary_email" placeholder="Enter email"  class="form-control" value="{{ $user->secondary_email }}">
-                </div>
-            </div>           
+      
             <div class="col-md-3">
                 <div class="form-group"> 
                     <label class="control-label" for="primary_phone">Phone <small>(primary)</small> </label>

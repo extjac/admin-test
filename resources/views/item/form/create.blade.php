@@ -7,7 +7,7 @@
  
 <hr>   
 <div class="row">
-
+<!--
     <div class="col-md-4">
 
     <a href="javascript:;" class="btn-upload-image">
@@ -15,8 +15,8 @@
     </a>
         
     </div>
-
-    <div class="col-md-8">
+-->
+    <div class="col-md-12">
 
       <div class="row">
         <div class="col-md-6">
@@ -46,28 +46,17 @@
       <div class="row">
         <div class="col-md-3">
             <div class="form-group"> 
-                <label class="control-label" for="category_id">Category</label>
-                <?php $categories = App\ItemCategory::where('org_id', Auth::user()->org_id)->where('is_active', 1)->get() ?>
-                <select name='category_id' id="category_id" class="form-control c-select"  required>
-                  <option value=''  >-select- </option>
-                  @foreach( $categories as $category )
-                  <option value="{{ $category->id }}"  > {{ $category->name }}</option>
-                  @endforeach
-                </select>
-            </div>
-        </div>  
-        <div class="col-md-2">
-            <div class="form-group"> 
                 <label class="control-label" for="start_date_time">Start Date</label>
                 <input  type="date" name="start_date_time" id="start_date_time" placeholder="Enter start date"  class="form-control" minlength="1" >
             </div>
         </div>  
-        <div class="col-md-2">
+        <div class="col-md-3">
             <div class="form-group"> 
                 <label class="control-label" for="start_date_time">End Date</label>
                 <input  type="date" name="end_date_time" id="end_date_time" placeholder="Enter start date"  class="form-control" minlength="1" >
             </div>
-        </div>         
+        </div>     
+   
         <div class="col-md-3">
             <div class="form-group"> 
                 <label class="control-label" for="status">Status *</label>
@@ -77,7 +66,6 @@
                 </select>   
             </div>
         </div>  
-
       </div><!-- /row -->
 
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\OrderDetail;
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -10,7 +12,7 @@ use App\Http\Controllers\Controller;
 class ItemController extends Controller
 {
 
-    protected $title = 'Items';
+    protected $title = 'Events';
 
     protected $path = 'item';
 
@@ -139,10 +141,13 @@ class ItemController extends Controller
     public function edit( $token )
     {
         $item = Item::where('token', $token )->first();
+        
+        $participants = OrderDetail::findParticipants( $token );
 
         return view( $this->path.'.edit' )
         ->with('title', $this->title )
-        ->with('item', $item );
+        ->with('item', $item )
+        ->with('participants', $participants);
     }
 
 
